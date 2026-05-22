@@ -6,19 +6,68 @@
     <title>Chi tiết xe</title>
 
     <link rel="stylesheet" href="../css/chi-tiet.css">
+
+    <!-- ICON -->
+    <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 </head>
 <body>
 
-    <section class="cars">
-        <div class="container">
+    <a href="san-pham.html" class="back-home">
+        ← Quay lại danh sách xe
+    </a>
 
-            <a href="../index.html" class="detail-btn" style="max-width:200px;margin-bottom:30px;">← Quay lại</a>
+    <section class="detail-page">
 
-            <div id="detail"></div>
+        <!-- LEFT -->
 
-        </div>
+        
+<div id="detail"></div>
+        <!-- RIGHT -->
+
+        
+
     </section>
 
-    <script src="../js/script.js"></script>
+    <!-- MOBILE ACTION -->
+
+    <div class="mobile-action">
+
+        <button class="mobile-call">
+            📞 Gọi ngay
+        </button>
+
+        <button class="mobile-book">
+            Đặt xe
+        </button>
+
+    </div>
+
+    <script>
+
+        const mainImg =
+        document.getElementById("mainImg");
+
+        const thumbs =
+        document.querySelectorAll(".thumb-list img");
+
+        thumbs.forEach(img => {
+
+            img.addEventListener("click", () => {
+
+                mainImg.src = img.src;
+
+                document
+                .querySelector(".active-thumb")
+                ?.classList.remove("active-thumb");
+
+                img.classList.add("active-thumb");
+
+            });
+
+        });
+
+    </script>
+<script src="../js/script.js"></script>
 </body>
 </html>

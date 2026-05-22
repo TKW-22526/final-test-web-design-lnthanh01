@@ -308,8 +308,6 @@ if(search){
 
 }
 
-
-
 // =======================
 // CHI TIẾT XE
 // =======================
@@ -318,45 +316,222 @@ const detail = document.getElementById("detail");
 
 if(detail){
 
-    // Lấy id trên URL
     const params = new URLSearchParams(window.location.search);
 
     const id = params.get("id");
 
-    // Tìm xe theo id
     const car = cars.find(item => item.id == id);
 
-    // Render dữ liệu
     if(car){
 
         detail.innerHTML = `
 
-            <div class="detail-image">
-                <img src="${car.image}">
+        <section class="detail-page">
+
+            <!-- LEFT -->
+
+            <div class="detail-left">
+
+                <!-- IMAGE -->
+
+                <div class="main-image">
+
+                    <img id="mainImg"
+                    src="${car.image}"
+                    alt="">
+
+                </div>
+
+                <!-- THUMB -->
+
+                <div class="thumb-list">
+
+                    <img class="active-thumb"
+                    src="${car.image}"
+                    alt="">
+
+                    <img src="../assets/image/anh1.jpg" alt="">
+                    <img src="../assets/image/anh2.jpg" alt="">
+                    <img src="../assets/image/anh3.jpg" alt="">
+                    <img src="../assets/image/anh4.jpg" alt="">
+                    <img src="../assets/image/anh5.jpg" alt="">
+
+                </div>
+
+                <!-- SPEC -->
+
+                <div class="spec-box">
+
+                    <h2>Thông số kỹ thuật</h2>
+
+                    <div class="spec-grid">
+
+                        <div class="spec-item">
+                            <span>Tên xe</span>
+                            <strong>${car.name}</strong>
+                        </div>
+
+                        <div class="spec-item">
+                            <span>Số chỗ</span>
+                            <strong>${car.seats}</strong>
+                        </div>
+
+                        <div class="spec-item">
+                            <span>Hộp số</span>
+                            <strong>${car.gearbox}</strong>
+                        </div>
+
+                        <div class="spec-item">
+                            <span>Năm sản xuất</span>
+                            <strong>${car.year}</strong>
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <!-- DESC -->
+
+                <div class="desc-box">
+
+                    <h2>Mô tả xe</h2>
+
+                    <p>
+                        ${car.desc}
+                    </p>
+
+                </div>
+
             </div>
 
-            <div class="detail-info">
+            <!-- RIGHT -->
 
-                <h1>${car.name}</h1>
+            <div class="detail-right">
 
-                <p class="price">${car.price}</p>
+                <div class="info-card">
 
-                <p>${car.desc}</p>
+                    <div class="top-badge">
 
-                <ul>
-                    <li>${car.seats}</li>
-                    <li>${car.gearbox}</li>
-                    <li>${car.year}</li>
-                </ul>
+                        <span>HOT</span>
+                        <span>${car.year}</span>
 
-                <button>Đặt xe ngay</button>
+                    </div>
+
+                    <h1>${car.name}</h1>
+
+                    <div class="price-box">
+
+                        <div class="price">
+
+                            ${car.price}
+
+                        </div>
+
+                        <p>
+                            Giá thuê theo ngày
+                        </p>
+
+                    </div>
+
+                    <!-- META -->
+
+                    <div class="meta-list">
+
+                        <div class="meta-item">
+
+                            <i class="fa-solid fa-users"></i>
+
+                            <div>
+                                <p>Số chỗ</p>
+                                <strong>${car.seats}</strong>
+                            </div>
+
+                        </div>
+
+                        <div class="meta-item">
+
+                            <i class="fa-solid fa-gear"></i>
+
+                            <div>
+                                <p>Hộp số</p>
+                                <strong>${car.gearbox}</strong>
+                            </div>
+
+                        </div>
+
+                        <div class="meta-item">
+
+                            <i class="fa-solid fa-calendar"></i>
+
+                            <div>
+                                <p>Năm sản xuất</p>
+                                <strong>${car.year}</strong>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <!-- BUTTON -->
+
+                    <a href="tel:0369418837"
+                       class="call-btn">
+
+                        <i class="fa-solid fa-phone"></i>
+
+                        Gọi ngay
+
+                    </a>
+
+                    <a href="https://zalo.me/0369418837"
+                       target="_blank"
+                       class="message-btn">
+
+                        <i class="fa-regular fa-message"></i>
+
+                        Nhắn tin Zalo
+
+                    </a>
+
+                </div>
 
             </div>
+
+        </section>
 
         `;
+
+        // =======================
+        // ĐỔI ẢNH
+        // =======================
+
+        const mainImg =
+        document.getElementById("mainImg");
+
+        const thumbs =
+        document.querySelectorAll(".thumb-list img");
+
+        thumbs.forEach(img => {
+
+            img.addEventListener("click", () => {
+
+                mainImg.src = img.src;
+
+                document
+                .querySelector(".active-thumb")
+                ?.classList.remove("active-thumb");
+
+                img.classList.add("active-thumb");
+
+            });
+
+        });
+
     }
 
 }
+
+
 // Hover effect test
 console.log("Website thuê xe hoạt động");
 
