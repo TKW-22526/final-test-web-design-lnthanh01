@@ -13,7 +13,7 @@
 </head>
 <body>
 
-    <a href="san-pham.html" class="back-home">
+    <a href="#" id="backBtn" class="back-home">
         ← Quay lại danh sách xe
     </a>
 
@@ -69,5 +69,24 @@
 
     </script>
 <script src="../js/script.js"></script>
+<script>
+
+    const params = new URLSearchParams(window.location.search);
+
+    const from = params.get("from");
+
+    const backBtn = document.getElementById("backBtn");
+
+    if(from === "index"){
+
+        backBtn.href = "../index.html";
+
+    }else{
+
+        backBtn.href = "san-pham.html";
+
+    }
+
+</script>
 </body>
 </html>
