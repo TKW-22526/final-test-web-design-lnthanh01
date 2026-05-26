@@ -120,6 +120,17 @@ const cars = [
         folder: "limogreen",
         desc: "Xe hiện đại, nội thất cao cấp, form dáng trẻ trung."
     },
+    {
+        id: 11,
+        name: "Toyota Camry 2.5Q",
+        price: "1.200.000đ/ngày",
+        seats: "4 chỗ",
+        gearbox: "Tự động",
+        year: "2024",
+        image: "../assets/image/camry/1.jpg",
+        folder: "camry",
+        desc: "Xe sang ,......"
+    },
 
 ];
 
